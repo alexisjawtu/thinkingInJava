@@ -63,8 +63,8 @@ public class MathOps {
         c4 -= c5;
         pChr("c4 -= c5", c4);
 
-        System.out.println('y'+'q'); // an int!
-        System.out.println('y'-'q');
+        System.out.println('y'+'q'); // PROMOTION, to the biggest type! 
+        System.out.println('y'-'q'); // These are ints!
 
         String s2 = Character.toString(c3);
         System.out.println("toString");

@@ -39,6 +39,8 @@ public class HelloWorld {
 
         System.out.println(Math.E);
         System.out.println(Math.PI);
+        byte aByte = (byte)14;
+        System.out.println(aByte);
 
     }
 }
