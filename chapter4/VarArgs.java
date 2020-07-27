@@ -1,6 +1,9 @@
 //: VarArgs.java
 
-class A { int i; }
+class A { 
+    int i; 
+}
+
 public class VarArgs {
     static void f(Object[] x) {
         for (int i = 0; i < x.length; i++) {
