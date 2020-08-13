@@ -1,6 +1,6 @@
 //: Lunch.java
 
-class Soup {
+class Soup {                         // package friendly access
 
     private static int howMany;
 
@@ -9,17 +9,22 @@ class Soup {
     }
     // option 1:
 
-    // TODO think this
+    // Here we can control how many instances.
     public static Soup makeSoup() {
-        // if (howMany < 11) {
-        //     howMany++;
-        //     return new Soup();
-        // }
-        return new Soup();
+        Soup ret;
+        if (howMany < 11) {
+            howMany++;
+            ret = new Soup();
+        }
+        else {
+            ret = ps1;
+        }
+        return ret; 
     }
 
     // option 2. Make a singleton:
     private static Soup ps1 = new Soup();
+    
     public static Soup access() {
         return ps1;              // reference to the same singleton over and over.
     }
@@ -35,14 +40,17 @@ class Sandwich {
 }
 
 public class Lunch {
-    void test() {
+    public static void main(String[] args) {
         // Soup priv1 = new Soup(); // not allowed
-        Soup priv2 = Soup.makeSoup(); // allowed
+        Soup[] soups = new Soup[14];
+
+        for (int i = 0; i < 14; i++) {
+            soups[i] = Soup.makeSoup();
+            System.out.println(i + " " + soups[i]);
+        }
         Sandwich f1 = new Sandwich();
-
-        Soup priv3 = Soup.access();
-
+        Soup priv3 = Soup.access();   // to the singleton
+        System.out.println("sigleton: " + priv3);
         Soup.access().f();
-
     }
 }
